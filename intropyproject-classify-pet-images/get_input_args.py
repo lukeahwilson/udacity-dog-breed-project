@@ -23,7 +23,7 @@ import argparse
 #
 def get_input_args():
     parser = argparse.ArgumentParser()
-        """
+    """
     Retrieves and parses the 3 command line arguments provided by the user when
     they run the program from a terminal window. This function uses Python's
     argparse module to created and defined these 3 command line arguments. If
