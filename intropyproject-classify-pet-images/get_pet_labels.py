@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/get_pet_labels.py
 #
-# PROGRAMMER:
-# DATE CREATED:
-# REVISED DATE:
+# PROGRAMMER: Luke Wilson
+# DATE CREATED: 2021-04-27
+# REVISED DATE: 2021-05-03
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from
 #          the image's filename. This function inputs:
 #           - The Image Folder as image_dir within get_pet_labels function and
@@ -51,7 +51,7 @@ def get_pet_labels(image_dir):
                     pet_name_list[i] += word + ' '
             pet_name_list[i] = pet_name_list[i].strip() #Remove the extra space added from the line above
             if filename_list[i] not in pets_dic: #Add the filename as a key and the pet name as a value if it doesn't exist in dictionary
-                pets_dic[filename_list[i]] = pet_name_list[i]
+                pets_dic[filename_list[i]] = [pet_name_list[i]] #Make sure it makes the value a list and not a string
             else: #Print notice message if the item exists already
                 print('**Notice: Key = ', filename_list[i],' already exists in pets_dic with Value = ', pets_dic[filename_list[i]],'**')
 
