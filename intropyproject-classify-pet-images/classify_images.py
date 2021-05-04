@@ -65,15 +65,16 @@ def classify_images(images_dir, results_dic, model):
      Returns:
            None - results_dic is mutable data type so no return needed.
     """
-    for key in results_dic:
-        classified_image = [classifier(images_dir + key, model)]
-        results_dic[key] += classified_image
-        if results_dic[key][0] in classified_image:
-            results_dic[key] += '1'
+
+    for key in results_dic: #iterate through each key (filename) in the pets dictionary from get_pets_labels
+        classified_key = [classifier(images_dir + key, model).lower().strip()] #return classified label(s) for each filename and format them
+        results_dic[key] += classified_key #add the classified label(s) as an item to the dictionary value list
+        if results_dic[key][0] in str(classified_key): #check if the get_pet_label matches a label from the classified function
+            results_dic[key] += '1' #return 1 if true
         else:
-            results_dic[key] += '0'
+            results_dic[key] += '0' #return 0 if false
         print(results_dic[key][0])
         print(results_dic[key][1])
         print(results_dic[key][2])
-        
-    None
+
+    None 

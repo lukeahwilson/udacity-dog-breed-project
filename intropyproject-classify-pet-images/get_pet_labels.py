@@ -44,8 +44,7 @@ def get_pet_labels(image_dir):
     for i in range(0,len(filename_word_list),1): #Iterate through the list of filenames
         if filename_word_list[i][0] != ".":
             pet_name_list.append('') #Add a new slot for a new iteration of name formatting to eventually occupy
-            filename_word_list[i] = filename_word_list[i].lower() #Reformat filenames to lowercase
-            filename_word_list[i] = filename_word_list[i].split('_') #Splite each filenames into individual words
+            filename_word_list[i] = filename_word_list[i].lower().split('_') #Reformat filenames to lowercase and split each filename into individual words
             for word in filename_word_list[i]: #Move through split words from the filename getting looped
                 if word.isalpha(): #Add the alpha word to the pet name and ignore numbers and characters
                     pet_name_list[i] += word + ' '
