@@ -23,7 +23,7 @@ def get_pet_labels(image_dir):
       List. The list contains for following item:
          index 0 = pet image label (string)
     """
-    
+
     filename_list = listdir(image_dir) #Create a list of all filenames in the folder returned from get_input arguments
     filename_word_list = listdir(image_dir) #Repeat above to create a list ready for manipulation into individual words
     pet_name_list = [] #Create empty list to allow for formatted pet names to be inputted
@@ -41,9 +41,5 @@ def get_pet_labels(image_dir):
                 pets_dic[filename_list[i]] = [pet_name_list[i]] #Make sure it makes the value a list and not a string
             else: #Print notice message if the item exists already
                 print('**Notice: Key = ', filename_list[i],' already exists in pets_dic with Value = ', pets_dic[filename_list[i]],'**')
-
-    print('Printing key-value pairs in pets_dic:')
-    for key in pets_dic: #Print generated dictionary
-        print('Filename = ', key, '    Value = ', pets_dic[key])
-
+                
     return pets_dic

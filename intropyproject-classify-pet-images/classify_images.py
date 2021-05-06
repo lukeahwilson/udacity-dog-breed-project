@@ -39,8 +39,5 @@ def classify_images(images_dir, results_dic, model):
             results_dic[key] += '1' #return 1 if true
         else:
             results_dic[key] += '0' #return 0 if false
-        print(results_dic[key][0])
-        print(results_dic[key][1])
-        print(results_dic[key][2])
 
     None #no return required as the dictionary is a mutable data type and is updated outside of the function

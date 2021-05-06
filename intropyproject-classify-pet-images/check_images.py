@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # *udacity-dog-breed-project/intropyproject-classify-pet-images/check_images.py
+# echo 'alias udacitydogrun='cd ~/documents/udacity-dog-breed-project/intropyproject-classify-pet-images''
 #
 # PROGRAMMER: Luke Wilson
 # DATE CREATED: 2021-04-15
@@ -86,7 +87,7 @@ def main():
     # Adjusts the results dictionary to determine if classifier correctly
     # classified images as 'a dog' or 'not a dog'. This demonstrates if
     # model can correctly classify dog images as dogs (regardless of breed)
-    adjust_results4_isadog(results, None)
+    adjust_results4_isadog(results, in_arg.dogfile)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
     check_classifying_labels_as_dogs(results)
