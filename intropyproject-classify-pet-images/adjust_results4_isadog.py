@@ -38,19 +38,19 @@ def adjust_results4_isadog(results_dic, dogfile):
            None - results_dic is mutable data type so no return needed.
     """
 
-    dogs_dic={}
-    with open(dogfile,'r') as dogfile:
-        for line in dogfile:
-            dogs_dic[line.strip()]=1
-    for key in results_dic:
-        if results_dic[key][0] in dogs_dic.keys():
-            results_dic[key] += '1'
+    dogs_dic={} # Initialize the dognames dictionary
+    with open(dogfile,'r') as dogfile: # Open the dogfile
+        for line in dogfile: # Read each line in the dog file
+            dogs_dic[line.strip()] = 1 # Set each line as a key with value 1 and stip the line
+    for key in results_dic: # Run through the results dictionary
+        if results_dic[key][0] in dogs_dic.keys(): # Check if the pet image label is in the dogfile dictionary
+            results_dic[key] += [1] # Add 1 as new value to the results dictionary if true
         else:
-            results_dic[key] += '0'
-        if results_dic[key][1] in dogs_dic.keys():
-            results_dic[key] += '1'
+            results_dic[key] += [0] # Add 0 as new value to the results dictionary if false
+        if results_dic[key][1] in dogs_dic.keys(): # Check if the classifier result is in the dogfile dictionary
+            results_dic[key] += [1] # Add 1 as new value to the results dictionary if true
         else:
-            results_dic[key] += '0'
+            results_dic[key] += [0] # Add 0 as new value to the results dictionary if false
         print('Key is Filename = {}\n0 Image Label = {}\n1 Classifier Label = {}\n2 Label Match = {}\n3 Image Label Confirmed = {}\n4 Classifier Label Confirmed = {}\n'.format(\
               key, results_dic[key][0], results_dic[key][1], results_dic[key][2], results_dic[key][3], results_dic[key][4]))
 

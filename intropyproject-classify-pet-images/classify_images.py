@@ -36,8 +36,8 @@ def classify_images(images_dir, results_dic, model):
         classified_key = [classifier(images_dir + key, model).lower().strip()] #return classified label(s) for each filename and format them
         results_dic[key] += classified_key #add the classified label(s) as an item to the dictionary value list
         if results_dic[key][0] in str(classified_key): #check if the get_pet_label matches a label from the classified function
-            results_dic[key] += '1' #return 1 if true
+            results_dic[key] += [1] #return 1 if true
         else:
-            results_dic[key] += '0' #return 0 if false
+            results_dic[key] += [0] #return 0 if false
 
     None #no return required as the dictionary is a mutable data type and is updated outside of the function

@@ -33,41 +33,40 @@ def calculates_results_stats(results_dic):
     """
 
     stats_dic = {'cnt_images':len(results_dic),'cnt_label_match':0,'cnt_images_not':0,\
-    'cnt_images_dog':0,'cnt_correct_dog':0,'cnt_correct_not':0,'cnt_correct_breed':0,\
-    'pct_label_match':0,'pct_correct_dog':0,'pct_correct_not':0,'pct_correct_breed':0}
+    'cnt_images_dog':0,'cnt_correct_dog':0,'cnt_correct_not':0,'cnt_correct_breed':0}
 
-    for key in results_dic:
-        if results_dic[key][2] == "1":
-            stats_dic['cnt_label_match'] += 1
-        if results_dic[key][3] == "1":
-            stats_dic['cnt_images_dog'] += 1
-        if results_dic[key][3] and results_dic[key][4] == "1":
-            stats_dic['cnt_correct_dog'] += 1
-        if results_dic[key][3] and results_dic[key][4] == "0":
-            stats_dic['cnt_correct_not'] += 1
-        if results_dic[key][2] and results_dic[key][3] == "1":
-            stats_dic['cnt_correct_breed'] += 1
+    for key in results_dic: # Work through each key in the dictionary
+        if results_dic[key][2] == 1: # Check if label match for each iterated key
+            stats_dic['cnt_label_match'] += 1 # Count 1 more to the label match value
+        if results_dic[key][3] == 1: # Check if the dog image true value for each iterated key
+            stats_dic['cnt_images_dog'] += 1 # Count 1 more to the dog image value
+        if results_dic[key][3] and results_dic[key][4] == 1: # Check if a dog and if the classifier identified it as true
+            stats_dic['cnt_correct_dog'] += 1 # Count 1 more to correct dog value
+        if results_dic[key][3] and results_dic[key][4] == 0: # Check if not dog and if classifier agrees
+            stats_dic['cnt_correct_not'] += 1 # Count 1 more to correct not dog
+        if results_dic[key][2] and results_dic[key][3] == 1: # Check if breed is correct
+            stats_dic['cnt_correct_breed'] += 1 # Count 1 more to correct breed
 
-    stats_dic['cnt_images_not'] = stats_dic['cnt_images']-stats_dic['cnt_images_dog']
+    stats_dic['cnt_images_not'] = stats_dic['cnt_images']-stats_dic['cnt_images_dog'] # Calculate number of not dog images
 
-    if stats_dic['cnt_images'] != '0':
-        stats_dic['pct_label_match'] = 100*stats_dic['cnt_label_match']/stats_dic['cnt_images']
+    if stats_dic['cnt_images'] != 0: # Confirm no divide by zero error before each line
+        stats_dic['pct_label_match'] = 100*stats_dic['cnt_label_match']/stats_dic['cnt_images'] # Calculate percent match for each count
     else:
         stats_dic['pct_label_match'] = 0
-    if stats_dic['cnt_images_dog'] != '0':
+    if stats_dic['cnt_images_dog'] != 0:
         stats_dic['pct_correct_dog'] = 100*stats_dic['cnt_correct_dog']/stats_dic['cnt_images_dog']
     else:
         stats_dic['pct_correct_dog'] = 0
-    if stats_dic['cnt_images_not'] != '0':
+    if stats_dic['cnt_images_not'] != 0:
         stats_dic['pct_correct_not'] = 100*stats_dic['cnt_correct_not']/stats_dic['cnt_images_not']
     else:
         stats_dic['pct_correct_not'] = 0
-    if stats_dic['cnt_images_dog'] != '0':
+    if stats_dic['cnt_images_dog'] != 0:
         stats_dic['pct_correct_breed'] = 100*stats_dic['cnt_correct_breed']/stats_dic['cnt_images_dog']
     else:
         stats_dic['pct_correct_breed'] = 0
 
-    for key in stats_dic:
+    for key in stats_dic: # Print Key Value Pairs for stats
         print('\nName = ',key,'\nValue = ',stats_dic[key])
 
     return stats_dic
