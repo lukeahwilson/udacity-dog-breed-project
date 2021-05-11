@@ -66,7 +66,4 @@ def calculates_results_stats(results_dic):
     else:
         stats_dic['pct_correct_breed'] = 0
 
-    for key in stats_dic: # Print Key Value Pairs for stats
-        print('\nName = ',key,'\nValue = ',stats_dic[key])
-
     return stats_dic
