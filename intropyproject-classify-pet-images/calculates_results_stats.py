@@ -4,7 +4,7 @@
 #
 # PROGRAMMER: Luke Wilson
 # DATE CREATED: 2021-05-07
-# REVISED DATE: 2021-05-07
+# REVISED DATE: 2021-05-11
 # TODO 5: Define calculates_results_stats function
 
 def calculates_results_stats(results_dic):
