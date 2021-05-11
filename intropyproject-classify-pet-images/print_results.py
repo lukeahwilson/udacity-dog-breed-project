@@ -63,16 +63,23 @@ def print_results(results_dic, results_stats_dic, model,
            None - simply printing results.
     """
 
+    print('\n***PRINTING ', model.upper(), 'ARCHITECTURE RESULTS DICTIONARY***')
+    for key in results_dic: # Work through each key in the dictionary and print information
+        print('\nKey is Filename = {}\n0 Image Label = {}\n1 Classifier Label = {}\n2 Label Match = {}\n3 Image Label Confirmed = {}\n4 Classifier Label Confirmed = {}'.format(\
+              key, results_dic[key][0], results_dic[key][1], results_dic[key][2], results_dic[key][3], results_dic[key][4]))
+
+    print('\n***PRINTING ', model.upper(), 'ARCHITECTURE MISCLASSIFICATIONS***')
     for key in results_dic: # Work through each key in the dictionary
         if results_dic[key][3] == 1: # Image is dog but
             if results_dic[key][4] == 0 and print_incorrect_dogs == True: # Classifier thinks it is not
-                print('The {} architecture has failed to identify {} as a dog'.format(model, key)
+                print('\nThe {} architecture has failed to identify {} as a dog'.format(model, key))
             elif results_dic[key][2] == 0 and print_incorrect_breed == True: # Classifier gave it wrong breed
-                print('The {} architecture has failed to identify {} by the correct breed').format(model, key)
+                print('\nThe {} architecture has failed to identify {} by the correct breed'.format(model, key))
         if results_dic[key][3] == 0 and results_dic[key][4] == 1 and print_incorrect_dogs == True: # Image is not dog but classifier thinks it is
-            print('The {} architecture has wrongly identified {} as a dog').format(model, key)
+            print('\nThe {} architecture has wrongly identified {} as a dog'.format(model, key))
 
+    print('\n***PRINTING ', model.upper(), 'ARCHITECTURE STATISTICS***')
     for key in results_stats_dic: # Print Key Value Pairs for stats
-        print('\nName = ',key,'\nValue = ',stats_dic[key])
+        print('\nStatistic Name = ',key,'\nValue = ',results_stats_dic[key])
 
     None

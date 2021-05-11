@@ -51,7 +51,5 @@ def adjust_results4_isadog(results_dic, dogfile):
             results_dic[key] += [1] # Add 1 as new value to the results dictionary if true
         else:
             results_dic[key] += [0] # Add 0 as new value to the results dictionary if false
-        print('Key is Filename = {}\n0 Image Label = {}\n1 Classifier Label = {}\n2 Label Match = {}\n3 Image Label Confirmed = {}\n4 Classifier Label Confirmed = {}\n'.format(\
-              key, results_dic[key][0], results_dic[key][1], results_dic[key][2], results_dic[key][3], results_dic[key][4]))
 
     None
