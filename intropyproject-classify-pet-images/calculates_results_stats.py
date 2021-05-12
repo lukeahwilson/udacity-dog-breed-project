@@ -40,11 +40,11 @@ def calculates_results_stats(results_dic):
             stats_dic['cnt_label_match'] += 1 # Count 1 more to the label match value
         if results_dic[key][3] == 1: # Check if the dog image true value for each iterated key
             stats_dic['cnt_images_dog'] += 1 # Count 1 more to the dog image value
-        if results_dic[key][3] and results_dic[key][4] == 1: # Check if a dog and if the classifier identified it as true
+        if results_dic[key][3] == 1 and results_dic[key][4] == 1: # Check if a dog and if the classifier identified it as true
             stats_dic['cnt_correct_dog'] += 1 # Count 1 more to correct dog value
-        if results_dic[key][3] and results_dic[key][4] == 0: # Check if not dog and if classifier agrees
+        if results_dic[key][3] == 0 and results_dic[key][4] == 0: # Check if not dog and if classifier agrees
             stats_dic['cnt_correct_not'] += 1 # Count 1 more to correct not dog
-        if results_dic[key][2] and results_dic[key][3] == 1: # Check if breed is correct
+        if results_dic[key][2] == 1 and results_dic[key][3] == 1: # Check if breed is correct
             stats_dic['cnt_correct_breed'] += 1 # Count 1 more to correct breed
 
     stats_dic['cnt_images_not'] = stats_dic['cnt_images']-stats_dic['cnt_images_dog'] # Calculate number of not dog images
