@@ -1,0 +1,65 @@
+UPLOADED IMAGE RESULTS
+
+Statistic Name =  pct_label_match
+Alexnet =  50.0
+Resnet =  50.0
+VGG =  75.0
+
+Statistic Name =  pct_correct_dog
+Alexnet =  100.0
+Resnet =  50.0
+VGG =  100.0
+
+Statistic Name =  pct_correct_not
+Alexnet =  100.0
+Resnet =  50.0
+VGG =  50.0
+
+Statistic Name =  pct_correct_breed
+Alexnet =  50.0
+Resnet =  50.0
+VGG =  100.0
+
+Runtime (seconds)
+Alexnet =  0
+Resnet =  0
+VGG =  3
+
+The VGG only made one error for the uploaded images by interpretting the statue as being a dog.
+It is an advanced test, but a human can see that it is a statue, and so I believe it is fair.
+Alexnet and Resnet both struggled to interpret the upside down image. Alexnet correctly identified it as a dog, but missed the breed, Resnet thought it was brocolli...
+
+I believe VGG performed the best in this instance, as there are only 4 images and therefore computation time was not of concern and it impressively identified all dog breeds.
+
+DOGNAMES.TXT IMAGE PROCESSING RESULTS
+Statistic Name =  pct_label_match
+Alexnet =  75.0
+Resnet =  82.5
+VGG =  87.5
+
+Statistic Name =  pct_correct_dog
+Alexnet =  100.0
+Resnet =  100.0
+VGG =  100.0
+
+Statistic Name =  pct_correct_not
+Alexnet =  100.0
+Resnet =  90.0
+VGG =  100.0
+
+Statistic Name =  pct_correct_breed
+Alexnet =  80.0
+Resnet =  90.0
+VGG =  93.33333333333333
+
+Runtime (seconds)
+Alexnet =  3
+Resnet =  5
+VGG =  34
+
+VGG is the most accurate architecture on all fronts but also the most computationally intensive.
+Resnet was more accurate in breed identification than Alexnet but generated more false
+positives. I prefer identifying correctly yes/no dogs before moving on to breeds and therefore
+prefer Alexnet to Resnet, it is also more computationally efficient. I don't believe that VGG
+performed adequately to justify a 11x greater computation time. For that reason, my preferred
+architecture is Alexnet.
