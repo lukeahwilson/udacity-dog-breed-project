@@ -4,7 +4,7 @@
 #
 # PROGRAMMER: Luke Wilson
 # DATE CREATED: 2021-04-22
-# REVISED DATE: 2021-04-22
+# REVISED DATE: 2021-05-13
 # TODO 1: Define get_input_args function
 
 import argparse #import python argparse function
@@ -26,10 +26,10 @@ def get_input_args():
     Returns:
      parse_args() -data structure that stores the command line arguments object
     """
-    
-    parser = argparse.ArgumentParser() #define argument parser
+
+    parser = argparse.ArgumentParser(description = 'Classify images with provided model and benchmark performance') #define argument parser
     parser.add_argument('--dir', type=str, default='pet_images/', help='path to the folder of pet images') #create directory argument
-    parser.add_argument('--arch', type=str, default='vgg', help='choose between \'resnet\', \'alexnet\' or \'vgg\' architectures') #create architecture choice argument
+    parser.add_argument('--arch', type=str, default='vgg', help='choose preferred architecture', choices=['vgg', 'alexnet', 'resnet']) #create architecture choice argument
     parser.add_argument('--dogfile', type=str, default='dognames.txt', help='name of the file containing the list of dognames') #create dogfile argument
 
     return parser.parse_args() #return parsed arguments
