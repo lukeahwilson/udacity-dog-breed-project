@@ -1,0 +1,122 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = vgg 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 4 key-value pairs.
+Below are 4 of them:
+ 1 key:                    Lion_01.jpg  label:                       lion
+ 2 key:    Pembroke_welsh_corgi_01.jpg  label:       pembroke welsh corgi
+ 3 key:    Pembroke_welsh_corgi_02.jpg  label:       pembroke welsh corgi
+ 4 key:               Sculpture_01.jpg  label:                  sculpture
+
+     MATCH:
+
+                   Lion_01.jpg: 
+Real:                       lion   Classifier: lion, king of beasts, panthera leo
+
+   Pembroke_welsh_corgi_01.jpg: 
+Real:       pembroke welsh corgi   Classifier: pembroke, pembroke welsh corgi, corgi
+
+   Pembroke_welsh_corgi_02.jpg: 
+Real:       pembroke welsh corgi   Classifier: pembroke, pembroke welsh corgi, corgi
+
+ NOT A MATCH:
+
+              Sculpture_01.jpg: 
+Real:                  sculpture   Classifier:             labrador retriever
+
+# Total Images 4 # Matches: 3 # NOT Matches: 1
+
+     MATCH:
+
+                   Lion_01.jpg: 
+Real:                       lion   Classifier: lion, king of beasts, panthera leo  
+PetLabelDog: 0  ClassLabelDog: 0
+
+   Pembroke_welsh_corgi_01.jpg: 
+Real:       pembroke welsh corgi   Classifier: pembroke, pembroke welsh corgi, corgi  
+PetLabelDog: 1  ClassLabelDog: 1
+
+   Pembroke_welsh_corgi_02.jpg: 
+Real:       pembroke welsh corgi   Classifier: pembroke, pembroke welsh corgi, corgi  
+PetLabelDog: 1  ClassLabelDog: 1
+
+ NOT A MATCH:
+
+              Sculpture_01.jpg: 
+Real:                  sculpture   Classifier:             labrador retriever  
+PetLabelDog: 0  ClassLabelDog: 1
+
+# Total Images 4 # Matches: 3 # NOT Matches: 1
+
+***PRINTING  VGG ARCHITECTURE RESULTS DICTIONARY***
+
+Key is Filename = Lion_01.jpg
+0 Image Label = lion
+1 Classifier Label = lion, king of beasts, panthera leo
+2 Label Match = 1
+3 Image Label Confirmed = 0
+4 Classifier Label Confirmed = 0
+
+Key is Filename = Pembroke_welsh_corgi_01.jpg
+0 Image Label = pembroke welsh corgi
+1 Classifier Label = pembroke, pembroke welsh corgi, corgi
+2 Label Match = 1
+3 Image Label Confirmed = 1
+4 Classifier Label Confirmed = 1
+
+Key is Filename = Pembroke_welsh_corgi_02.jpg
+0 Image Label = pembroke welsh corgi
+1 Classifier Label = pembroke, pembroke welsh corgi, corgi
+2 Label Match = 1
+3 Image Label Confirmed = 1
+4 Classifier Label Confirmed = 1
+
+Key is Filename = Sculpture_01.jpg
+0 Image Label = sculpture
+1 Classifier Label = labrador retriever
+2 Label Match = 0
+3 Image Label Confirmed = 0
+4 Classifier Label Confirmed = 1
+
+***PRINTING  VGG ARCHITECTURE MISCLASSIFICATIONS***
+
+The vgg architecture has wrongly identified Sculpture_01.jpg as a dog
+
+***PRINTING  VGG ARCHITECTURE STATISTICS***
+
+Statistic Name =  cnt_images 
+Value =  4
+
+Statistic Name =  cnt_label_match 
+Value =  3
+
+Statistic Name =  cnt_images_not 
+Value =  2
+
+Statistic Name =  cnt_images_dog 
+Value =  2
+
+Statistic Name =  cnt_correct_dog 
+Value =  2
+
+Statistic Name =  cnt_correct_not 
+Value =  1
+
+Statistic Name =  cnt_correct_breed 
+Value =  2
+
+Statistic Name =  pct_label_match 
+Value =  75.0
+
+Statistic Name =  pct_correct_dog 
+Value =  100.0
+
+Statistic Name =  pct_correct_not 
+Value =  50.0
+
+Statistic Name =  pct_correct_breed 
+Value =  100.0
+
+** Total Elapsed Runtime: 0:0:1
